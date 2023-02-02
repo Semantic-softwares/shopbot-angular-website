@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { IndexPageComponent } from './index-page/index-page.component';
 import { AboutUsPageComponent } from './about-us-page/about-us-page.component';
 import { PolicyPageComponent } from './policy-page/policy-page.component';
+import { VerifyPageComponent } from './verify-page/verify-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexPageComponent,
     AboutUsPageComponent,
-    PolicyPageComponent
+    PolicyPageComponent,
+    VerifyPageComponent
   ],
   imports: [
     BrowserModule,
