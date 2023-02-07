@@ -13,6 +13,8 @@ import { TeamPageComponent } from './team-page/team-page.component';
 import { PricePageComponent } from './price-page/price-page.component';
 import { FaqPageComponent } from './faq-page/faq-page.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
     TeamPageComponent,
     PricePageComponent,
     FaqPageComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
