@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,9 @@ import { FaqPageComponent } from './faq-page/faq-page.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AboutHeaderComponent } from './about-header/about-header.component';
+import { AboutFooterComponent } from './about-footer/about-footer.component';
 
 @NgModule({
   declarations: [
@@ -30,11 +34,15 @@ import { HeaderComponent } from './header/header.component';
     FaqPageComponent,
     NotFoundPageComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    AboutHeaderComponent,
+    AboutFooterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
