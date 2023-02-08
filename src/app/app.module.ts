@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import {AgmCoreModule} from '@agm/core';
+import {MatGoogleMapsAutocompleteModule} from '@angular-material-extensions/google-maps-autocomplete';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IndexPageComponent } from './index-page/index-page.component';
@@ -20,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AboutHeaderComponent } from './about-header/about-header.component';
 import { AboutFooterComponent } from './about-footer/about-footer.component';
 import { CreateStoreComponent } from './create-store/create-store.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -44,7 +48,12 @@ import { CreateStoreComponent } from './create-store/create-store.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBTzycQbUj9vWxnq8VgI7pzmYxdEo6t8to',
+      libraries: ['places']}),
+    MatGoogleMapsAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,15 +12,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CreateStoreComponent implements OnInit {
   form: FormGroup;
   merchantId: string
+  location: Object
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private router : Router, private route: ActivatedRoute,) {}
+  constructor(private fb: FormBuilder, private http: HttpClient, private router : Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
 
     const merchantIdFromRoute = this.route.snapshot.params['merchantId'];
 
     this.merchantId = merchantIdFromRoute
-
+    
     console.log(this.merchantId)
 
     this.form = this.fb.group({
@@ -28,19 +29,25 @@ export class CreateStoreComponent implements OnInit {
       description: ['', Validators.required],
       country: ['Nigeria', Validators.required],
       category: ['Restaurants', Validators.required],
+      address: ['', Validators.required],
       contactInfo: this.fb.group({
         email: ['', [Validators.required, Validators.email]],
         phone: ['', Validators.required],
         placeName: ['', Validators.required],
         placeNumber: ['', Validators.required],
       })
-    });    
+    });
+    
   }
  
   submitForm() {
     if (this.form.valid) {
-      console.log({...this.form.value, ...{ merchant_id : this.merchantId }})
-      // this.http.post('api/endpoint', this.form.value).subscribe();
+      this.location = this.form.value["address"]["geoLocation"]
+      delete this.form.value["address"]
+      console.log({...this.form.value, ...{ merchant_id : this.merchantId , location: this.location }})
+      this.http.post('https://shopbot.ngrok.io/stores', this.form.value).subscribe((data) => console.log(data));
     }
   }
 }
+
+
