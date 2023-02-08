@@ -1,5 +1,6 @@
 <app-about-header></app-about-header>
-<form *ngIf="showFirstForm" [formGroup]="firstForm" (ngSubmit)="submitFirstForm()">
+
+<form [formGroup]="form" (ngSubmit)="submitForm()">
   <h3>Get started selling</h3>
     <div>
       <label>Name:</label>
@@ -25,41 +26,6 @@
       <input type="password" formControlName="password">
     </div>
     <button type="submit">Submit</button>
-</form>
-
-<form *ngIf="!showFirstForm" [formGroup]="secondForm" (ngSubmit)="submitSecondForm()">
-  <div>
-    <label>Name:</label>
-    <input type="text" formControlName="name">
-  </div>
-  <div>
-    <label>Description:</label>
-    <textarea formControlName="description"></textarea>
-  </div>
-  <div>
-    <label>Country:</label>
-    <input type="text" formControlName="country">
-  </div>
-  <div formGroupName="contactInfo">
-    <h3>Contact Info</h3>
-    <div>
-      <label>Email:</label>
-      <input type="email" formControlName="email">
-    </div>
-    <div>
-      <label>Phone:</label>
-      <input type="text" formControlName="phone">
-    </div>
-    <div>
-      <label>Place Name:</label>
-      <input type="text" formControlName="placeName">
-    </div>
-    <div>
-      <label>Place Number:</label>
-      <input type="text" formControlName="placeNumber">
-    </div>
-  </div>
-  <button type="submit">Submit</button>
 </form>
 
 <app-about-footer></app-about-footer>

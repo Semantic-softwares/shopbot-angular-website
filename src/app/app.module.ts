@@ -19,6 +19,7 @@ import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AboutHeaderComponent } from './about-header/about-header.component';
 import { AboutFooterComponent } from './about-footer/about-footer.component';
+import { CreateStoreComponent } from './create-store/create-store.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { AboutFooterComponent } from './about-footer/about-footer.component';
     FooterComponent,
     HeaderComponent,
     AboutHeaderComponent,
-    AboutFooterComponent
+    AboutFooterComponent,
+    CreateStoreComponent
   ],
   imports: [
     BrowserModule,
