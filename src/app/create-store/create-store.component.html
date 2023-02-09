@@ -1,0 +1,51 @@
+<app-about-header></app-about-header>
+<form [formGroup]="form" (ngSubmit)="submitForm()">
+  <h3>Create store</h3>
+  <div>
+    <label>Name:</label>
+    <input type="text" formControlName="name">
+  </div>
+  <div>
+    <label>Description:</label>
+    <textarea formControlName="description"></textarea>
+  </div>
+  <div>
+    <label>Country:</label>
+    <select formControlName="country">
+      <option value="Nigeria">Nigeria</option>
+      <option value="Mauritius">Mauritius</option>
+    </select>
+  </div>
+  <div>
+    <label>Category:</label>
+    <select formControlName="category">
+      <option value="5eccfc6030e2796db7a939a1">Restaurants</option>
+      <option value="63c76fc1cc9975d2cbf3da7a">Groceries</option>
+      <option value="63d0d5a92ea8f49ad78c260c">Pet Supplies</option>
+      <option value="63d0d5c32ea8f49ad78c260d">Pharmcy</option>
+    </select>
+  </div>
+  <mat-search-google-maps-autocomplete formControlName="address">
+  </mat-search-google-maps-autocomplete>
+  <div formGroupName="contactInfo">
+    <h3>Contact Info</h3>
+    <div>
+      <label>Email:</label>
+      <input type="email" formControlName="email">
+    </div>
+    <div>
+      <label>Phone:</label>
+      <input type="text" formControlName="phone">
+    </div>
+    <div>
+      <label>Place Name:</label>
+      <input type="text" formControlName="placeName">
+    </div>
+    <div>
+      <label>Place Number:</label>
+      <input type="text" formControlName="placeNumber">
+    </div>
+  </div>
+  <button type="submit">Submit</button>
+</form>
+<app-about-footer></app-about-footer>

@@ -1,5 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { environment } from 'src/environments/environment.development';
+
+import {AgmCoreModule} from '@agm/core';
+import {MatGoogleMapsAutocompleteModule} from '@angular-material-extensions/google-maps-autocomplete';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +21,11 @@ import { FaqPageComponent } from './faq-page/faq-page.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AboutHeaderComponent } from './about-header/about-header.component';
+import { AboutFooterComponent } from './about-footer/about-footer.component';
+import { CreateStoreComponent } from './create-store/create-store.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -30,11 +41,21 @@ import { HeaderComponent } from './header/header.component';
     FaqPageComponent,
     NotFoundPageComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    AboutHeaderComponent,
+    AboutFooterComponent,
+    CreateStoreComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    AgmCoreModule.forRoot({
+      apiKey: environment.apiKey,
+      libraries: ['places']}),
+    MatGoogleMapsAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsPageComponent } from './about-us-page/about-us-page.component';
+import { CreateStoreComponent } from './create-store/create-store.component';
 import { FaqPageComponent } from './faq-page/faq-page.component';
 import { IndexPageComponent } from './index-page/index-page.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: "privacy-policy", component: PolicyPageComponent},
   {path: "verify", component: VerifyPageComponent},
   {path: "services", component: ServicePageComponent},
-  {path: "partner", component: PartnerPageComponent},
+  {path: "create-merchant", component: PartnerPageComponent},
+  {path: "create-store/:merchantId", component: CreateStoreComponent},
   {path: "team", component: TeamPageComponent},
   {path: "pricing", component: PricePageComponent},
   {path: "faq", component: FaqPageComponent},
