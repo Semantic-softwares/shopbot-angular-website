@@ -26,6 +26,7 @@ import { AboutHeaderComponent } from './about-header/about-header.component';
 import { AboutFooterComponent } from './about-footer/about-footer.component';
 import { CreateStoreComponent } from './create-store/create-store.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SucesssComponent } from './sucesss/sucesss.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeaderComponent,
     AboutHeaderComponent,
     AboutFooterComponent,
-    CreateStoreComponent
+    CreateStoreComponent,
+    SucesssComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +55,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     AgmCoreModule.forRoot({
-      apiKey: environment.apiKey,
+      apiKey: 'AIzaSyBTzycQbUj9vWxnq8VgI7pzmYxdEo6t8to',
       libraries: ['places']}),
     MatGoogleMapsAutocompleteModule
   ],

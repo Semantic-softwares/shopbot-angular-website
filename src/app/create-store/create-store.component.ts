@@ -46,6 +46,7 @@ export class CreateStoreComponent implements OnInit {
       delete this.form.value["address"]
       console.log({...this.form.value, ...{ merchant : this.merchantId , location: this.location }})
       this.http.post('https://shopbot.ngrok.io/stores/web', {...this.form.value, ...{ owner : this.merchantId , location: this.location }}).subscribe((data) => console.log(data));
+      this.router.navigate(['success' ])
     }
   }
 }

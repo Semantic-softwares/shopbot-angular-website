@@ -29,7 +29,7 @@ form {
     color: white;
     border: none;
     border-radius: 5px;
-    box-shadow: 0 0 10px blue;
+    box-shadow: 0 0 5px blue;
     cursor: pointer;
   }
 
@@ -41,4 +41,8 @@ form {
     text-shadow: 1px 1px #333;
   }
   
-  
+  button[type="submit"]:disabled {
+    background-color: grey;
+    color: lightgrey;
+    cursor: not-allowed;
+}

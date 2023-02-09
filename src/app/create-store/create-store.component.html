@@ -2,12 +2,12 @@
 <form [formGroup]="form" (ngSubmit)="submitForm()">
   <h3>Create store</h3>
   <div>
-    <label>Name:</label>
-    <input type="text" formControlName="name">
+    <label>Store Name:</label>
+    <input type="text" formControlName="name" placeholder="John's Shop">
   </div>
   <div>
     <label>Description:</label>
-    <textarea formControlName="description"></textarea>
+    <textarea formControlName="description" placeholder="Add shop description"></textarea>
   </div>
   <div>
     <label>Country:</label>
@@ -28,24 +28,23 @@
   <mat-search-google-maps-autocomplete formControlName="address">
   </mat-search-google-maps-autocomplete>
   <div formGroupName="contactInfo">
-    <h3>Contact Info</h3>
     <div>
-      <label>Email:</label>
-      <input type="email" formControlName="email">
+      <label>Address details:</label>
+      <input type="text" formControlName="placeName" placeholder="Add your precise address">
     </div>
     <div>
-      <label>Phone:</label>
-      <input type="text" formControlName="phone">
+      <label>Address number:</label>
+      <input type="text" formControlName="placeNumber" placeholder="Add your address number">
     </div>
     <div>
-      <label>Place Name:</label>
-      <input type="text" formControlName="placeName">
+      <label>Store Email:</label>
+      <input type="email" formControlName="email" placeholder="JohnShop@mail.com">
     </div>
     <div>
-      <label>Place Number:</label>
-      <input type="text" formControlName="placeNumber">
+      <label>Store Phone number:</label>
+      <input type="text" formControlName="phone" placeholder="add shop number">
     </div>
   </div>
-  <button type="submit">Submit</button>
+  <button type="submit" [disabled]="!form.valid">Submit</button>
 </form>
 <app-about-footer></app-about-footer>

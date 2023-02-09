@@ -25,11 +25,17 @@ export class PartnerPageComponent implements OnInit {
 
   submitForm() {
     if (this.form.valid) {
+      console.log(this.form.value)
       this.http.post('https://shopbot.ngrok.io/merchants', this.form.value)
         .subscribe((data: any) => {
-          const merchant_id = data["$__"]["_id"];
-          this.router.navigate(['create-store', merchant_id])
-        });
+          //if (data.err && data.err.errmsg.startsWith('E11000 duplicate key error collection')) {
+          //  alert("Email or phone number already exiss")
+          //}else{
+            const merchant_id = data["$__"]["_id"];
+            this.router.navigate(['create-store', merchant_id])  
+          //}
+        }
+    );
     }
   }
 }
