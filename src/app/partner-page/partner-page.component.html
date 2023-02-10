@@ -25,7 +25,16 @@
       <label>Password:</label>
       <input type="password" formControlName="password" placeholder="Strongpassword123">
     </div>
-    <button type="submit" [disabled]="!form.valid" (click)="submitForm()">Submit</button>
+    <div>
+      <label>Confirm Password:</label>
+      <input type="password" formControlName="confirmPassword" placeholder="Strongpassword123">
+    </div>
+    <button type="submit" [disabled]="submitting || !form.valid" (click)="submitting = true">
+      <ng-container *ngIf="submitting">
+        <i class="fa fa-spinner fa-spin"></i>
+      </ng-container>
+      <ng-container *ngIf="!submitting">Submit</ng-container>
+    </button>
 </form>
 
 <app-about-footer></app-about-footer>

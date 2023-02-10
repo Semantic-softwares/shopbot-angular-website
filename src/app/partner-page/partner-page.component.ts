@@ -10,17 +10,20 @@ import { Router } from '@angular/router';
 })
 export class PartnerPageComponent implements OnInit {
   form: FormGroup;
+  submitting: Boolean
 
   constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
     this.form = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      phoneNumber: ['', Validators.required],
-      gender: ['male', Validators.required],
-      password: ['', Validators.required],
-    });
+      name: [null, Validators.required],
+      email: [null, [Validators.required, Validators.email]],
+      phoneNumber: [null, Validators.required],
+      gender: [null, Validators.required],
+      password: [null, Validators.required],
+      confirmPassword: [null, Validators.required]
+    }, { validator: this.checkPasswords });
+    
   }
 
   submitForm() {
@@ -32,10 +35,17 @@ export class PartnerPageComponent implements OnInit {
           //  alert("Email or phone number already exiss")
           //}else{
             const merchant_id = data["$__"]["_id"];
-            this.router.navigate(['create-store', merchant_id])  
+            this.router.navigate(['create-store', merchant_id])
+            window.scrollTo(0, 0)  
           //}
         }
     );
     }
+  }
+
+  checkPasswords(group: FormGroup) {
+    let password = group.controls["password"].value;
+    let confirmPassword = group.controls["confirmPassword"].value;
+    return password === confirmPassword ? null : { notSame: true };
   }
 }
