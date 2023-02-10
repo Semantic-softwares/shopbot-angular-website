@@ -25,6 +25,7 @@ import { AboutFooterComponent } from './about-footer/about-footer.component';
 import { CreateStoreComponent } from './create-store/create-store.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SucesssComponent } from './sucesss/sucesss.component';
+import { MerchantsService } from './services/merchant.service';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,7 @@ import { SucesssComponent } from './sucesss/sucesss.component';
     }),
     MatGoogleMapsAutocompleteModule
   ],
-  providers: [],
+  providers: [MerchantsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

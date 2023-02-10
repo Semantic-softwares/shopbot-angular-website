@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { MerchantsService } from '../services/merchant.service';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-partner-page',
@@ -12,7 +14,12 @@ export class PartnerPageComponent implements OnInit {
   form: FormGroup;
   submitting: Boolean
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) { }
+  constructor(
+    private fb: FormBuilder, 
+    private http: HttpClient, 
+    private router: Router,
+    private merchant: MerchantsService
+    ) { }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -28,16 +35,16 @@ export class PartnerPageComponent implements OnInit {
 
   submitForm() {
     if (this.form.valid) {
-      console.log(this.form.value)
-      this.http.post('https://shopbot.ngrok.io/merchants', this.form.value)
-        .subscribe((data: any) => {
-          //if (data.err && data.err.errmsg.startsWith('E11000 duplicate key error collection')) {
-          //  alert("Email or phone number already exiss")
-          //}else{
+      this.submitting = true
+      this.merchant.createMerchant(this.form.getRawValue()).pipe(finalize(() => this.submitting = false))
+      .subscribe((data: any) => {
+          if (data.err && data.err.errmsg.startsWith('E11000 duplicate key error collection')) {
+           alert("Email or phone number already exists")
+          }else{
             const merchant_id = data["$__"]["_id"];
             this.router.navigate(['create-store', merchant_id])
             window.scrollTo(0, 0)  
-          //}
+          }
         }
     );
     }

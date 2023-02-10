@@ -27,7 +27,7 @@ export class CreateStoreComponent implements OnInit {
 
     this.merchantId = merchantIdFromRoute
 
-    console.log(this.merchantId)
+
 
 
 
