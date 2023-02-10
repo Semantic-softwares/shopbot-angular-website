@@ -54,7 +54,8 @@ import { SucesssComponent } from './sucesss/sucesss.component';
     BrowserAnimationsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBTzycQbUj9vWxnq8VgI7pzmYxdEo6t8to',
-      libraries: ['places']}),
+      libraries: ['places']
+    }),
     MatGoogleMapsAutocompleteModule
   ],
   providers: [],
