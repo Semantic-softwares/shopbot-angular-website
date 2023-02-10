@@ -4,15 +4,15 @@
   <h3>Get started selling</h3>
     <div>
       <label>Name:</label>
-      <input type="text" formControlName="name">
+      <input type="text" formControlName="name" placeholder="John Doe">
     </div>
     <div>
       <label>Email:</label>
-      <input type="email" formControlName="email">
+      <input type="email" formControlName="email" placeholder="johndoe@mail.com">
     </div>
     <div>
       <label>Phone Number:</label>
-      <input type="text" formControlName="phoneNumber">
+      <input type="text" formControlName="phoneNumber" placeholder="09012345678">
     </div>
     <div>
       <label>Gender:</label>
@@ -23,9 +23,9 @@
     </div>
     <div>
       <label>Password:</label>
-      <input type="password" formControlName="password">
+      <input type="password" formControlName="password" placeholder="Strongpassword123">
     </div>
-    <button type="submit">Submit</button>
+    <button type="submit" [disabled]="!form.valid" (click)="submitForm()">Submit</button>
 </form>
 
 <app-about-footer></app-about-footer>

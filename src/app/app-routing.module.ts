@@ -9,6 +9,7 @@ import { PartnerPageComponent } from './partner-page/partner-page.component';
 import { PolicyPageComponent } from './policy-page/policy-page.component';
 import { PricePageComponent } from './price-page/price-page.component';
 import { ServicePageComponent } from './service-page/service-page.component';
+import { SucesssComponent } from './sucesss/sucesss.component';
 import { TeamPageComponent } from './team-page/team-page.component';
 import { VerifyPageComponent } from './verify-page/verify-page.component';
 
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: "services", component: ServicePageComponent},
   {path: "create-merchant", component: PartnerPageComponent},
   {path: "create-store/:merchantId", component: CreateStoreComponent},
+  {path: "success", component: SucesssComponent},
   {path: "team", component: TeamPageComponent},
   {path: "pricing", component: PricePageComponent},
   {path: "faq", component: FaqPageComponent},
