@@ -19,14 +19,14 @@
   <div>
     <label>Category:</label>
     <select formControlName="category">
-      <option value="5eccfc6030e2796db7a939a1">Restaurants</option>
-      <option value="63c76fc1cc9975d2cbf3da7a">Groceries</option>
-      <option value="63d0d5a92ea8f49ad78c260c">Pet Supplies</option>
-      <option value="63d0d5c32ea8f49ad78c260d">Pharmcy</option>
+      <option *ngFor="let category of categories" [value]="category._id">{{category.name}}</option>
     </select>
   </div>
-  <mat-google-maps-autocomplete formControlName="address">
-  </mat-google-maps-autocomplete>
+  <div>
+    <label > Search address:</label>
+    <input type="text" matGoogleMapsAutocomplete (onLocationSelected)="locationSelect($event)">
+  </div>
+  
   <div formGroupName="contactInfo">
     <div>
       <label>Address details:</label>
@@ -45,6 +45,14 @@
       <input type="text" formControlName="phone" placeholder="add shop number">
     </div>
   </div>
-  <button type="submit" [disabled]="!form.valid">Submit</button>
+  <button type="submit" [disabled]="submitting || !form.valid" (click)="submitting = true">
+    <ng-container *ngIf="submitting">
+      <i class="fa fa-spinner fa-spin"></i>
+    </ng-container>
+    <ng-container *ngIf="!submitting">Submit</ng-container>
+  </button>
+  
+
 </form>
+
 <app-about-footer></app-about-footer>
