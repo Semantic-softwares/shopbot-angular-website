@@ -45,14 +45,12 @@
       <input type="text" formControlName="phone" placeholder="add shop number">
     </div>
   </div>
-  <button type="submit" [disabled]="submitting || !form.valid" (click)="submitting = true">
+  <button type="submit" [disabled]="submitting || !form.valid">
     <ng-container *ngIf="submitting">
       <i class="fa fa-spinner fa-spin"></i>
     </ng-container>
     <ng-container *ngIf="!submitting">Submit</ng-container>
-  </button>
-  
-
+  </button>  
 </form>
 
 <app-about-footer></app-about-footer>

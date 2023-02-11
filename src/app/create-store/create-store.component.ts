@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular-material-extensions/google-maps-autocomplete';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
+import { finalize } from 'rxjs';
 
 
 @Component({
@@ -26,10 +27,6 @@ export class CreateStoreComponent implements OnInit {
     const merchantIdFromRoute = this.route.snapshot.params['merchantId'];
 
     this.merchantId = merchantIdFromRoute
-
-
-
-
 
     this.form = this.fb.group({
       merchant: [merchantIdFromRoute, Validators.required],
@@ -56,6 +53,7 @@ export class CreateStoreComponent implements OnInit {
     if (this.form.valid) {
       console.log(this.form.value)
       this.http.post('https://shopbot.ngrok.io/stores/web', this.form.getRawValue())
+        .pipe(finalize(() => this.submitting = false))
         .subscribe(() => {
           this.router.navigate(['success'])
           window.scrollTo(0, 0);
