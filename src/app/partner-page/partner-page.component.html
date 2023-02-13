@@ -2,39 +2,72 @@
 
 <form [formGroup]="form" (ngSubmit)="submitForm()">
   <h3>Get started selling</h3>
-    <div>
-      <label>Name:</label>
-      <input type="text" formControlName="name" placeholder="John Doe">
+  <div>
+    <label>Name:</label>
+    <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="alert-danger">
+      <div *ngIf="name?.errors?.['required']">
+        Name is required.
+      </div>
     </div>
-    <div>
-      <label>Email:</label>
-      <input type="email" formControlName="email" placeholder="johndoe@mail.com">
+    <input type="text" formControlName="name" placeholder="John Doe">
+  </div>
+  <div>
+    <label>Email:</label>
+    <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="alert-danger">
+      <div *ngIf="email?.errors?.['required']">
+        Email is required.
+      </div>
+      <div *ngIf="email?.errors?.['email']">
+        This has to be a proper email address
+      </div>
     </div>
-    <div>
-      <label>Phone Number:</label>
-      <input type="text" formControlName="phoneNumber" placeholder="09012345678">
+    <input type="email" formControlName="email" placeholder="johndoe@mail.com">
+  </div>
+  <div>
+    <label>Phone Number:</label>
+    <div *ngIf="number?.invalid && (number?.dirty || number?.touched)" class="alert-danger">
+      <div *ngIf="number?.errors?.['required']">
+        Phone Number is required.
+      </div>
     </div>
-    <div>
-      <label>Gender:</label>
-      <select formControlName="gender">
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-      </select>
+    <input type="text" formControlName="phoneNumber" placeholder="09012345678">
+  </div>
+  <div>
+    <label>Gender:</label>
+    <div *ngIf="gender?.invalid && (gender?.dirty || gender?.touched)" class="alert-danger">
+      <div *ngIf="gender?.errors?.['required']">
+        Gender is required.
+      </div>
     </div>
-    <div>
-      <label>Password:</label>
-      <input type="password" formControlName="password" placeholder="Strongpassword123">
+    <select formControlName="gender">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+  </div>
+  <div>
+    <label>Password:</label>
+    <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="alert-danger">
+      <div *ngIf="password?.errors?.['required']">
+        Password is required.
+      </div>
     </div>
-    <div>
-      <label>Confirm Password:</label>
-      <input type="password" formControlName="confirmPassword" placeholder="Strongpassword123">
+    <input type="password" formControlName="password" placeholder="Strongpassword123">
+  </div>
+  <div>
+    <label>Confirm Password:</label>
+    <div *ngIf="confirmPassword?.invalid && (confirmPassword?.dirty || confirmPassword?.touched)" class="alert-danger">
+      <div *ngIf="confirmPassword?.errors?.['required']">
+        Current Password is required and should be the same as Password.
+      </div>
     </div>
-    <button type="submit" [disabled]="submitting || !form.valid">
-      <ng-container *ngIf="submitting">
-        <i class="fa fa-spinner fa-spin"></i>
-      </ng-container>
-      <ng-container *ngIf="!submitting">Submit</ng-container>
-    </button>
+    <input type="password" formControlName="confirmPassword" placeholder="Strongpassword123">
+  </div>
+  <button type="submit" [disabled]="submitting || !form.valid">
+    <ng-container *ngIf="submitting">
+      <i class="fa fa-spinner fa-spin"></i>
+    </ng-container>
+    <ng-container *ngIf="!submitting">Continue</ng-container>
+  </button>
 </form>
 
 <app-about-footer></app-about-footer>

@@ -71,6 +71,25 @@ export class CreateStoreComponent implements OnInit {
   locationSelect(location: Location) {
     this.form.patchValue({ location: { coordinates: [location.latitude, location.longitude] } })
   }
+
+  get name() { return this.form.get('name'); }
+
+  get description() { return this.form.get('description'); }
+
+  get country() { return this.form.get('country'); }
+
+  get category() { return this.form.get('category'); }
+
+  get contact() { return this.form.get('contactInfo')}
+  
+  get email() { return this.contact?.get('email')}
+  
+  get phone() { return this.contact?.get('phone')}
+  
+  get placeName() { return this.contact?.get('placeName')}
+  
+  get placeNumber() { return this.contact?.get('placeNumber')}
+  
 }
 
 

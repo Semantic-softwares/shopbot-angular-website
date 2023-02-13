@@ -25,7 +25,7 @@ const routes: Routes = [
   {path: "team", component: TeamPageComponent},
   {path: "pricing", component: PricePageComponent},
   {path: "faq", component: FaqPageComponent},
-  {path: "404", component: NotFoundPageComponent}
+  {path: "**", component: NotFoundPageComponent}
 ];
 
 @NgModule({

@@ -46,3 +46,9 @@ form {
     color: lightgrey;
     cursor: not-allowed;
 }
+
+.alert-danger{
+  color: red;
+  font-size: small;
+  margin-bottom: 5px;
+}

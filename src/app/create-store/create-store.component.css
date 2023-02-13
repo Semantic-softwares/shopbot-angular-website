@@ -56,3 +56,9 @@ textarea {
   box-shadow: 0 0 10px #ccc;
   height: 200px; /* add this to make the textarea longer */
 }
+
+.alert-danger{
+  color: red;
+  font-size: small;
+  margin-bottom: 5px;
+}
