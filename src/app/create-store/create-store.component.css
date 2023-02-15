@@ -46,3 +46,19 @@ form {
     color: lightgrey;
     cursor: not-allowed;
 }
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #ccc;
+  height: 200px; /* add this to make the textarea longer */
+}
+
+.alert-danger{
+  color: red;
+  font-size: small;
+  margin-bottom: 5px;
+}

@@ -55,4 +55,16 @@ export class PartnerPageComponent implements OnInit {
     let confirmPassword = group.controls["confirmPassword"].value;
     return password === confirmPassword ? null : { notSame: true };
   }
+
+  get name() { return this.form.get('name'); }
+  
+  get email() { return this.form.get('email'); }
+
+  get number() { return this.form.get('phoneNumber')}
+
+  get gender() { return this.form.get('gender')}
+
+  get password() { return this.form.get('password')}
+
+  get confirmPassword() { return this.form.get('confirmPassword')} 
 }

@@ -3,14 +3,29 @@
   <h3>Create store</h3>
   <div>
     <label>Store Name:</label>
+    <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="alert-danger">
+      <div *ngIf="name?.errors?.['required']">
+        Name is required.
+      </div>
+    </div>
     <input type="text" formControlName="name" placeholder="John's Shop">
   </div>
   <div>
     <label>Description:</label>
+    <div *ngIf="description?.invalid && (description?.dirty || description?.touched)" class="alert-danger">
+      <div *ngIf="description?.errors?.['required']">
+        Please add a description for your shop.
+      </div>
+    </div>
     <textarea formControlName="description" placeholder="Add shop description"></textarea>
   </div>
   <div>
     <label>Country:</label>
+    <div *ngIf="country?.invalid && (country?.dirty || country?.touched)" class="alert-danger">
+      <div *ngIf="country?.errors?.['required']">
+        Please add a description for your shop.
+      </div>
+    </div>
     <select formControlName="country">
       <option value="Nigeria">Nigeria</option>
       <option value="Mauritius">Mauritius</option>
@@ -18,6 +33,11 @@
   </div>
   <div>
     <label>Category:</label>
+    <div *ngIf="category?.invalid && (category?.dirty || category?.touched)" class="alert-danger">
+      <div *ngIf="category?.errors?.['required']">
+        Select a category
+      </div>
+    </div>
     <select formControlName="category">
       <option *ngFor="let category of categories" [value]="category._id">{{category.name}}</option>
     </select>
@@ -30,29 +50,50 @@
   <div formGroupName="contactInfo">
     <div>
       <label>Address details:</label>
+      <div *ngIf="placeName?.invalid && (placeName?.dirty || placeName?.touched)" class="alert-danger">
+        <div *ngIf="placeName?.errors?.['required']">
+          Add more address details here
+        </div>
+      </div>
       <input type="text" formControlName="placeName" placeholder="Add your precise address">
     </div>
     <div>
       <label>Address number:</label>
+      <div *ngIf="placeNumber?.invalid && (placeNumber?.dirty || placeNumber?.touched)" class="alert-danger">
+        <div *ngIf="placeNumber?.errors?.['required']">
+          Add your address number here
+        </div>
+      </div>
       <input type="text" formControlName="placeNumber" placeholder="Add your address number">
     </div>
     <div>
       <label>Store Email:</label>
+      <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="alert-danger">
+        <div *ngIf="email?.errors?.['required']">
+          Add your store email
+        </div>
+        <div *ngIf="email?.errors?.['email']">
+          Must be a valid email address
+        </div>
+      </div>
       <input type="email" formControlName="email" placeholder="JohnShop@mail.com">
     </div>
     <div>
       <label>Store Phone number:</label>
+      <div *ngIf="phone?.invalid && (phone?.dirty || phone?.touched)" class="alert-danger">
+        <div *ngIf="phone?.errors?.['required']">
+          Add your store phone number
+        </div>
+      </div>
       <input type="text" formControlName="phone" placeholder="add shop number">
     </div>
   </div>
-  <button type="submit" [disabled]="submitting || !form.valid" (click)="submitting = true">
+  <button type="submit" [disabled]="submitting || !form.valid">
     <ng-container *ngIf="submitting">
       <i class="fa fa-spinner fa-spin"></i>
     </ng-container>
     <ng-container *ngIf="!submitting">Submit</ng-container>
-  </button>
-  
-
+  </button>  
 </form>
 
 <app-about-footer></app-about-footer>
