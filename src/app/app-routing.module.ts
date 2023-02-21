@@ -6,6 +6,7 @@ import { IndexPageComponent } from './index-page/index-page.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { PartnerPageComponent } from './partner-page/partner-page.component';
 import { PolicyPageComponent } from './policy-page/policy-page.component';
+import { RiderPageComponent } from './rider-page/rider-page.component';
 import { SucesssComponent } from './sucesss/sucesss.component';
 import { VerifyPageComponent } from './verify-page/verify-page.component';
 
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: "privacy-policy", component: PolicyPageComponent},
   {path: "verify", component: VerifyPageComponent},
   {path: "create-merchant", component: PartnerPageComponent},
+  {path: "create-rider", component: RiderPageComponent},
   {path: "create-store/:merchantId", component: CreateStoreComponent},
   {path: "success", component: SucesssComponent},
   {path: "**", component: NotFoundPageComponent}

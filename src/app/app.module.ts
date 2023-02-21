@@ -12,6 +12,7 @@ import { AboutUsPageComponent } from './about-us-page/about-us-page.component';
 import { PolicyPageComponent } from './policy-page/policy-page.component';
 import { VerifyPageComponent } from './verify-page/verify-page.component';
 import { PartnerPageComponent } from './partner-page/partner-page.component';
+import { RiderPageComponent } from './rider-page/rider-page.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
@@ -31,6 +32,7 @@ import { MerchantsService } from './services/merchant.service';
     PolicyPageComponent,
     VerifyPageComponent,
     PartnerPageComponent,
+    RiderPageComponent,
     NotFoundPageComponent,
     FooterComponent,
     HeaderComponent,
