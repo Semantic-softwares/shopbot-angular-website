@@ -2,15 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsPageComponent } from './about-us-page/about-us-page.component';
 import { CreateStoreComponent } from './create-store/create-store.component';
-import { FaqPageComponent } from './faq-page/faq-page.component';
 import { IndexPageComponent } from './index-page/index-page.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { PartnerPageComponent } from './partner-page/partner-page.component';
 import { PolicyPageComponent } from './policy-page/policy-page.component';
-import { PricePageComponent } from './price-page/price-page.component';
-import { ServicePageComponent } from './service-page/service-page.component';
 import { SucesssComponent } from './sucesss/sucesss.component';
-import { TeamPageComponent } from './team-page/team-page.component';
 import { VerifyPageComponent } from './verify-page/verify-page.component';
 
 const routes: Routes = [
@@ -18,18 +14,16 @@ const routes: Routes = [
   {path: "about-us", component: AboutUsPageComponent},
   {path: "privacy-policy", component: PolicyPageComponent},
   {path: "verify", component: VerifyPageComponent},
-  {path: "services", component: ServicePageComponent},
   {path: "create-merchant", component: PartnerPageComponent},
   {path: "create-store/:merchantId", component: CreateStoreComponent},
   {path: "success", component: SucesssComponent},
-  {path: "team", component: TeamPageComponent},
-  {path: "pricing", component: PricePageComponent},
-  {path: "faq", component: FaqPageComponent},
   {path: "**", component: NotFoundPageComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    initialNavigation: 'enabledBlocking'
+})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

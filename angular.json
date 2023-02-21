@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/shopbot-angular-website",
+            "outputPath": "dist/shopbot-angular-website/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -104,6 +104,65 @@
         },
         "deploy": {
           "builder": "angular-cli-ghpages:deploy"
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/shopbot-angular-website/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ],
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "shopbot-angular-website:build:development",
+              "serverTarget": "shopbot-angular-website:server:development"
+            },
+            "production": {
+              "browserTarget": "shopbot-angular-website:build:production",
+              "serverTarget": "shopbot-angular-website:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "shopbot-angular-website:build:production",
+              "serverTarget": "shopbot-angular-website:server:production"
+            },
+            "development": {
+              "browserTarget": "shopbot-angular-website:build:development",
+              "serverTarget": "shopbot-angular-website:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

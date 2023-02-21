@@ -39,12 +39,12 @@ export class PartnerPageComponent implements OnInit {
       this.merchant.createMerchant(this.form.getRawValue()).pipe(finalize(() => this.submitting = false))
       .subscribe((data: any) => {
           if (data.err && data.err.errmsg.startsWith('E11000 duplicate key error collection')) {
-           alert("Email or phone number already exists")
+            alert("Email or phone number already exists")
           }else{
-            const merchant_id = data["$__"]["_id"];
+            const merchant_id = data['_doc']['_id'];
             this.router.navigate(['create-store', merchant_id])
             window.scrollTo(0, 0)  
-          }
+         }
         }
     );
     }
