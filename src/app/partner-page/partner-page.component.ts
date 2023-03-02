@@ -41,7 +41,7 @@ export class PartnerPageComponent implements OnInit {
           if (data.err && data.err.errmsg.startsWith('E11000 duplicate key error collection')) {
             alert("Email or phone number already exists")
           }else{
-            const merchant_id = data['_doc']['_id'];
+            const merchant_id = data['_doc']["_id"];
             this.router.navigate(['create-store', merchant_id])
             window.scrollTo(0, 0)  
          }

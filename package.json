@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "publish": "ng deploy --base-href=/shopbot-angular-website/",
+    "publish": "ng build && npx ngh --dir=dist/shopbot-angular-website",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "dev:ssr": "ng run shopbot-angular-website:serve-ssr",
