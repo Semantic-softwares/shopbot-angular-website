@@ -15,22 +15,22 @@ export class MerchantsService {
   constructor(private _httpClient: HttpClient) {}
 
   getMerchants(): Observable<any[]> {
-    return this._httpClient.get<any[]>(`${this.hostServer}/merchants`);
+    return this._httpClient.get<any[]>(`https://shopbot-server.herokuapp.com/merchants`);
   }
 
   getMerchant(id:any): Observable<any> {
-    return this._httpClient.get<any>(`${this.hostServer}/merchants/${id}`);
+    return this._httpClient.get<any>(`https://shopbot-server.herokuapp.com/merchants/${id}`);
   }
 
   deleteMerchant(id:string): Observable<any> {
-    return this._httpClient.delete<any>(`${this.hostServer}/merchants/${id}`);
+    return this._httpClient.delete<any>(`https://shopbot-server.herokuapp.com/merchants/${id}`);
   }
 
   updateMerchant(id:string, params: any) : Observable<any> {
-    return this._httpClient.put<any>(`${this.hostServer}/merchants/${id}`, params);
+    return this._httpClient.put<any>(`https://shopbot-server.herokuapp.com/merchants/${id}`, params);
   }
 
   createMerchant(params: any) : Observable<any> {
-    return this._httpClient.post<any>(`${this.hostServer}/merchants`, params);
+    return this._httpClient.post<any>(`https://shopbot-server.herokuapp.com/merchants`, params);
   } 
 }
