@@ -52,7 +52,7 @@ export class CreateStoreComponent implements OnInit {
     console.log(this.form.value)
     if (this.form.valid) {
       console.log(this.form.value)
-      this.http.post('https://shopbot.ngrok.io/stores/web', this.form.getRawValue())
+      this.http.post('https://shopbot-server.herokuapp.com/stores/web', this.form.getRawValue())
         .pipe(finalize(() => this.submitting = false))
         .subscribe(() => {
           this.router.navigate(['success'])
@@ -62,7 +62,7 @@ export class CreateStoreComponent implements OnInit {
   }
 
   getCategories() {
-    this.http.get('https://shopbot.ngrok.io/categories').subscribe((data: any) => {
+    this.http.get('https://shopbot-server.herokuapp.com/categories').subscribe((data: any) => {
       this.categories = data
     })
   }
