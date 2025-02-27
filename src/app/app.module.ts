@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import {AgmCoreModule} from '@agm/core';
-import {MatGoogleMapsAutocompleteModule} from '@angular-material-extensions/google-maps-autocomplete';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -47,11 +45,6 @@ import { MerchantsService } from './services/merchant.service';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBTzycQbUj9vWxnq8VgI7pzmYxdEo6t8to',
-      libraries: ['places']
-    }),
-    MatGoogleMapsAutocompleteModule
   ],
   providers: [MerchantsService],
   bootstrap: [AppComponent]

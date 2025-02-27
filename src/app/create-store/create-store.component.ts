@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Location } from '@angular-material-extensions/google-maps-autocomplete';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { finalize } from 'rxjs';
@@ -69,7 +68,7 @@ export class CreateStoreComponent implements OnInit {
 
 
   locationSelect(location: Location) {
-    this.form.patchValue({ location: { coordinates: [location.latitude, location.longitude] } })
+    // this.form.patchValue({ location: { coordinates: [location.latitude, location.longitude] } })
   }
 
   get name() { return this.form.get('name'); }
