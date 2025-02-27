@@ -24,6 +24,7 @@
               "src/favicon.ico",
               "src/assets",
               "src/apple-app-site-association",
+              "src/app-ads",
               "src/CNAME"
             ],
             "styles": [
